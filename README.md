@@ -138,3 +138,18 @@ except as expressly provided in this subsection.
 ```
 
 The final fragment—“except as expressly provided in this subsection” properly belongs to B, but this method will assign it to B2. That's because unlabelled paragraphs are presumed to be a continuation of the prior paragraph; there is no method by which “except as expressly provided in this subsection” can be known to be a continuation of “and agent registration requirements of this chapter.”
+
+# To Do
+[Thom Neale points out a use case](https://twitter.com/twneale/status/306080682491396096) that is not allowed for, but that should be:
+
+```
+(h) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	(i) Integer tincidunt, sem eu pretium condimentum.
+	(ii) Sed dui justo, euismod nec mattis a, aliquet quis ante.
+(i) Nulla dapibus sem et ligula consectetur vitae sagittis arcu varius.
+(j) Proin a mauris sit amet enim ullamcorper ultricies vitae id lectus.
+```
+
+This is a non-trivial modification, because it requires statefulness—an understanding, upon “realizing” that it’s in the midst of a list of Roman numerals, that it must backtrack, reevaluate where that list began, and modify the ancestry of those subsections accordingly. If it encountered only a single subsection of `(i)`, that's especially problematic, because it’s two “i”s in a row, and there’s no hint available that one of them should be a Roman numeral and, thus, a child of `(h)`. That requires an understanding of order (alphabetic, numeric, and Roman numeric) that is not currently present in this, but that seems conceptually straightforward to add.
+
+Thom has found the example problem within the U.S. Code, so it’s not merely hypothetical.
