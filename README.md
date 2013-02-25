@@ -34,7 +34,7 @@ It is well structured, in the sense that its structure is clear to a human looki
 
 To improve this text with this tool, first break it up into its component paragraphs and store it as an object (`$text = (object) explode(PHP_EOL, $text);`), which yields the following:
 
-```php
+```
 stdClass Object
 (
     [0] => A. The agency may appoint a negotiated rulemaking panel (NRP) if a regulatory action is expected to be controversial.
@@ -55,7 +55,7 @@ $parser->parse();
 
 This returns the following as `$parser->structured`:
 
-```php
+```
 (
 	[text] => 
 	[0] => stdClass Object
