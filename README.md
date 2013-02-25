@@ -24,11 +24,13 @@ To add other structural identifiers, simply write a PCRE to identify them and ad
 
 For example, this text, [from the Virginia Administrative Code](http://leg1.state.va.us/cgi-bin/legp504.exe?000+reg+16VAC20-11-80):
 
-> A. The agency may appoint a negotiated rulemaking panel (NRP) if a regulatory action is expected to be controversial.
-> B. An NRP that has been appointed by the agency may be dissolved by the agency when:
-> 1. There is no longer controversy associated with the development of the regulation;
-> 2. The agency determines that the regulatory action is either exempt or excluded from the requirements of the Administrative Process Act; or
-> 3. The agency determines that resolution of a controversy is unlikely.
+```
+A. The agency may appoint a negotiated rulemaking panel (NRP) if a regulatory action is expected to be controversial.
+B. An NRP that has been appointed by the agency may be dissolved by the agency when:
+1. There is no longer controversy associated with the development of the regulation;
+2. The agency determines that the regulatory action is either exempt or excluded from the requirements of the Administrative Process Act; or
+3. The agency determines that resolution of a controversy is unlikely.
+```
 
 It is well structured, in the sense that its structure is clear to a human looking at it, but there is no metadata providing structure that is machine readable.
 
