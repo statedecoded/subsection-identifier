@@ -59,7 +59,6 @@ This returns the following as `$parser->structured`:
 
 ```
 (
-	[text] => 
 	[0] => stdClass Object
 		(
 			[prefix_hierarchy] => stdClass Object
