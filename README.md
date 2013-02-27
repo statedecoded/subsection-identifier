@@ -2,6 +2,8 @@
 
 Turns theoretically structured text into actually structured text. If you have a well-structured textual document, but with structure that exists only within the text and not actually as metadata, then this is the tool to solve that problem.
 
+Created with the support of the John S. and James L. Knight Foundation, as a component of [The State Decoded](http://www.statedecoded.com/).
+
 
 # Instructions
 
