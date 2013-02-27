@@ -5,7 +5,7 @@ Turns theoretically structured text into actually structured text. If you have a
 
 # Instructions
 
-Take the text and break it up into paragraphs, storing the text as an object, with each paragraph as a numbered property. Create a new instance of `Subsection_Identifier` (`$parser = new SubsectionIdentifier()`), store the text object as the `text` property, and then invoke the method `parse()`. That will create a member object property, `structured`, that uses the same numbered property list as the input array, with each property’s `prefix_hierarchy`, `prefix`, and `text` stored as a property.
+Take the text and break it up into paragraphs, storing the text as an object, with each paragraph as a numbered property. Create a new instance of `SubsectionIdentifier` (`$parser = new SubsectionIdentifier()`), store the text object as the `text` property, and then invoke the method `parse()`. That will create a member object property, `structured`, that uses the same numbered property list as the input array, with each property’s `prefix_hierarchy`, `prefix`, and `text` stored as a property.
 
 When a structural identifer cannot be identified at the beginning of a paragraph, it will be assumed that the paragraph is continuation of the subsection identified for the prior paragraph.
 
