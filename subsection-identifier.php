@@ -40,7 +40,8 @@ class SubsectionIdentifier
 									'/[0-9]{1,2}\. /',
 									'/[a-z]{1,2}\. /',
 									'/\([0-9]{1,2}\) /',
-									'/\([a-z]{1,2}\) /');
+									'/\([a-z]{1,2}\) /',
+									'/\((xvi[1,4})\) /');
 		
 		/*
 		 * Establish a blank prefix structure. We'll build this up and continually modify it to keep
@@ -89,6 +90,18 @@ class SubsectionIdentifier
 				 * of a new numbered section. First, let's save a platonic ideal of this match.
 				 */
 				$match = trim($matches[0]);
+				
+				/*
+				 * Then we move this matched PCRE to the beginning of the $prefix_candidates stack,
+				 * so that on our next iteration through we'll start with this one. We do that both
+				 * in the name of efficiency and also to help Roman numerals be identified
+				 * consistently, despite being comprised of letters that might reasonably be
+				 * identified by another PCRE.
+				 */
+				$pos = array_search($prefix, $prefix_candidates);
+				$tmp = $prefix_candidates[$pos];
+				unset($prefix_candidates[$pos]);
+				array_unshift($prefix_candidates, $tmp);
 				
 				/*
 				 * Now we need to figure out what the entire section number is, only the very end of
