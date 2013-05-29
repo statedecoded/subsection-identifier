@@ -14,7 +14,7 @@
  * PHP version 5
  *
  * @author		Waldo Jaquith <waldo at jaquith.org>
- * @copyright	2013 Waldo Jaquith
+ * @copyright		2013 Waldo Jaquith
  * @license		http://www.gnu.org/licenses/gpl.html GPL 3
  * @version		1.0
  * @link		http://www.statedecoded.com/
