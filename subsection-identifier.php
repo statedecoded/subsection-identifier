@@ -278,3 +278,4 @@ class SubsectionIdentifier
 		return true;
 	}
 }
+
