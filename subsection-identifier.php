@@ -78,7 +78,7 @@ class SubsectionIdentifier
 			$section_fragment = substr($paragraph, 0, 5);
 			
 			/*
-			 * Iterate through our PCRE candidates until we find one that matches (if, indeed, one
+			 * Iterate through our regex candidates until we find one that matches (if, indeed, one
 			 * does at all).
 			 */
 			foreach ($prefix_candidates as $prefix)
@@ -101,11 +101,11 @@ class SubsectionIdentifier
 				$match = trim($matches[0]);
 				
 				/*
-				 * Then we move this matched PCRE to the beginning of the $prefix_candidates stack,
+				 * Then we move this matched regex to the beginning of the $prefix_candidates stack,
 				 * so that on our next iteration through we'll start with this one. We do that both
 				 * in the name of efficiency and also to help Roman numerals be identified
 				 * consistently, despite being comprised of letters that might reasonably be
-				 * identified by another PCRE.
+				 * identified by another regex.
 				 */
 				$pos = array_search($prefix, $prefix_candidates);
 				$tmp = $prefix_candidates[$pos];
