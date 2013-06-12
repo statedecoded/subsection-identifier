@@ -34,7 +34,22 @@ class SubsectionIdentifier
 		}
 		
 		/*
-		 * Define all possible section prefixes via via PCRE strings.
+		 * Define all possible section prefixes via via regexes -- a letter, number, or series of
+		 * letters that defines an individual subsection of text in a hierarchical fashion. The
+		 * subsection prefix can be in one of eight formats:
+		 * 
+		 * 	A.
+		 *	1.
+		 *	a.
+		 *	iv.
+		 *	(A)
+		 *	(1)
+		 *	(a)
+		 *	(iv)
+		 *
+		 * That, of course, is four formats expressed in two different fashions -- wrapped in
+		 * parentheses or followed by a period and a space. We pair that with a list of all possible
+		 * characters that can appear within that range, which we use to verify the match.
 		 */
 		$prefix_candidates = array	('/[A-Z]{1,2}\. /',
 									'/[0-9]{1,2}\. /',
@@ -55,14 +70,8 @@ class SubsectionIdentifier
 		$i=0;
 		foreach ($this->text as &$paragraph)
 		{
-			
+		
 			/*
-			 * Detect the presence of a subsection prefix -- that is, a letter, number, or series of
-			 * letters that defines an individual subsection of text in a hierarchical fashion. The
-			 * subsection letter can be in one of five formats:
-			 * 
-			 * 		A. -> 1. -> a. -> (1) -> (a)
-			 *
 			 * Set aside the first five characters in this section of text. That's the maximum number
 			 * of characters that a prefix can occupy.
 			 */
@@ -130,6 +139,7 @@ class SubsectionIdentifier
 					 */
 					foreach ($prefixes as $key => &$prefix_component)
 					{
+					
 						/*
 						 * We include a space after $prefix_component because this regex is looking
 						 * for a space after the prefix, something that would be there when finding
@@ -163,6 +173,7 @@ class SubsectionIdentifier
 						{
 							$prefixes = array_slice($prefixes, 0, ($key+1));
 						}
+						
 					}
 					
 					/*
