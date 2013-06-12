@@ -7,7 +7,7 @@ Created with the support of the John S. and James L. Knight Foundation, as a com
 
 # Instructions
 
-Take the text and break it up into paragraphs, storing the text as an object, with each paragraph as a numbered property. Create a new instance of `SubsectionIdentifier` (`$parser = new SubsectionIdentifier()`), store the text object as the `text` property, and then invoke the method `parse()`. That will create a member object property, `structured`, that uses the same numbered property list as the input array, with each property’s `prefix_hierarchy`, `prefix`, and `text` stored as a property.
+Take the text and break it up into paragraphs, storing the text as an object, with each paragraph as a numbered property. (Or don't—you can pass your text directly to `SubsectionIdentifier`, as a single string, and it'll break it up based on `\n\n` characters.) Create a new instance of `SubsectionIdentifier` (`$parser = new SubsectionIdentifier()`), store the text object as the `text` property, and then invoke the method `parse()`. That will create a member object property, `structured`, that uses the same numbered property list as the input array, with each property’s `prefix_hierarchy`, `prefix`, and `text` stored as a property.
 
 When a structural identifer cannot be identified at the beginning of a paragraph, it will be assumed that the paragraph is continuation of the subsection identified for the prior paragraph.
 
