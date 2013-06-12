@@ -69,6 +69,14 @@ class SubsectionIdentifier
 		$prefixes = array();
 		
 		/*
+		 * If the text is a string, turn it into an object.
+		 */
+		if (is_string($this->text))
+		{
+			$this->text = (object) explode("\n\n", $this->text);
+		}
+		
+		/*
 		 * Deal with each subsection, one at a time.
 		 */
 		$i=0;
