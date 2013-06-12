@@ -51,13 +51,17 @@ class SubsectionIdentifier
 		 * parentheses or followed by a period and a space. We pair that with a list of all possible
 		 * characters that can appear within that range, which we use to verify the match.
 		 */
-		$prefix_candidates = array	('/[A-Z]{1,2}\. /',
-									'/[0-9]{1,2}\. /',
-									'/[a-z]{1,2}\. /',
-									'/\([0-9]{1,2}\) /',
-									'/\([a-z]{1,2}\) /',
-									'/\((xvi[1,4})\) /');
-		
+		$prefix_candidates = array	(
+									'/[0-9]{1,2}\. /' => range(1, 99),
+									'/\([0-9]{1,2}\) /' => range(1, 99),
+									'/[a-z]{1,2}\. /' => range('a', 'z'),
+									'/\([a-z]{1,2}\) /' => range('a', 'z'),
+									'/[A-Z]{1,2}\. /' => range('A', 'Z'),
+									'/\([A-Z]{1,2}\) /' => range('a', 'z'),
+									'/([xvi]{1,4})\. /' => array('i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx'),
+									'/\(([xvi]{1,4})\) /' => array('i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx')
+									);
+
 		/*
 		 * Establish a blank prefix structure. We'll build this up and continually modify it to keep
 		 * track of our current complete section number as we iterate through the text.
