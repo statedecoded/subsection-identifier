@@ -105,6 +105,25 @@ class SubsectionIdentifier
 				{
 					continue;
 				}
+
+				/*
+				 * If the section fragment is a Roman numeral "i", but the matched prefix candidate
+				 * is alphabetic, then let's skip this prefix candidate and continue to iterate,
+				 * knowing that we'll get to the Roman numeral prefix candidate soon. We ignore the
+				 * last character, since that could potentially be the first character of the text
+				 * (as opposed to the prefix), and is definitely not the text of our prefix (it
+				 * could be a containing parenthesis, but we're not concerned about that now). We're
+				 * trying to avoid actually matching an "i" if the text is, for example:
+				 *
+				 *	"a. in the meaning of..."
+				 */
+				if (strpos(substr($section_fragment, 0, -2), 'i'))
+				{
+					if ($prefix_members[0] == 'a')
+					{
+						continue;
+					}
+				}
 				
 				/*
 				 * Great, we've successfully made a match -- we now know that this is the beginning
