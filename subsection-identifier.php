@@ -93,9 +93,9 @@ class SubsectionIdentifier
 			 * Iterate through our regex candidates until we find one that matches (if, indeed, one
 			 * does at all).
 			 */
-			foreach ($prefix_candidates as $prefix)
+			foreach ($prefix_candidates as $prefix => $prefix_members)
 			{
-					
+
 				/*
 				 * If this prefix isn't found in this section fragment, then proceed to the next
 				 * prefix.
