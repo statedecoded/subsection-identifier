@@ -107,10 +107,11 @@ class SubsectionIdentifier
 				 * consistently, despite being comprised of letters that might reasonably be
 				 * identified by another regex.
 				 */
-				$pos = array_search($prefix, $prefix_candidates);
-				$tmp = $prefix_candidates[$pos];
-				unset($prefix_candidates[$pos]);
-				array_unshift($prefix_candidates, $tmp);
+				$tmp = $prefix_candidates[$prefix];
+				unset($prefix_candidates[$prefix]);
+				$prefix_candidates = array_reverse($prefix_candidates);
+				$prefix_candidates[$prefix] = $tmp;
+				$prefix_candidates = array_reverse($prefix_candidates);
 				
 				/*
 				 * Now we need to figure out what the entire section number is, only the very end of
